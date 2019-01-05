@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    background: url("img/rainbow.jpg");
+    /*background: black;*/
+    background-size: 100%;
+    font-family: 'Lato', cursive;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.container {
+    width: 800px;
+    height: 750px;
+    margin: 20px auto;
+    background: url("img/sztaluga.jpg");
+    background-position-x: -245px;
+    background-position-y: -310px;
+    border-radius: 50px;
+    border: 1px solid transparent ;
+}
+
+.navBar {
+    height: 120px;
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftBox,
+.difficultyBox {
+    display: flex;
+    margin: 20px;
+}
+
+.leftBox li,
+.difficultyBox li {
+    list-style: none;
+    margin-right: 20px;
+}
+
+.leftBox li:hover,
+.difficultyBox li:hover {
+    cursor: pointer;
+    color: #61dafb;
+}
+
+.colorDiv:hover {
+
+    cursor: pointer;
+}
+
+.leftBox li:first-of-type:hover {
+    cursor: auto;
+    color: white;
+}
+
+.centerBox {
+    margin-right: 80px;
+}
+
+.title {
+    font-size: 58px;
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.colorElements {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.colorName {
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.colorDiv {
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 100%;
+    border: transparent;
+    height: 150px;
+    width:  150px;
+    margin: 20px;
+}
+
+.scoreBoard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.scoreBoard p {
+    font-size: 40px;
+}
+
+.scoreBoard span {
+    font-size: 60px;
+}
+
+.endGame,
+.winGame,
+.gameOver {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.endGame p,
+.gameWin p,
+.gameOver p {
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+.gameOver h1 {
+    font-size: 40px;
+}
+
+.footer {
+    background: black;
+    height: 40px;
+}
+
+.non-active {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: black;
+}
+
+
