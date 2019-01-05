@@ -141,14 +141,6 @@ class App extends React.Component {
 
     !this.state.hard ? newArr.push(randomColor, randomColorTwo, goodColor.rgb) : newArr.push(randomColor, randomColorTwo, goodColor.rgb, randomColorThree, randomColorFour, randomColorFith);
 
-    // const filteredArr = this.state.easyList.filter(function (element) {
-    //
-    //     if (element !== goodColor) {
-    //
-    //       return element;
-    //     }
-    // });
-
     const filteredArr = this.listToChoose.filter((element) => {
 
           if (element !== goodColor) {
@@ -268,16 +260,6 @@ class App extends React.Component {
     }
   };
 
-  endGame = () => {
-
-    this.setState({
-
-      running: false,
-      endGame: true,
-      gameOver: false
-    })
-  };
-
   handleHint = () => {
 
     this.setState({
@@ -363,15 +345,6 @@ class App extends React.Component {
                     </div>
                     : null
               }
-              {/*{*/}
-                {/*this.state.endGame*/}
-                    {/*?*/}
-                    {/*<div className={"endGame"}>*/}
-                      {/*<h1>BYE BYE</h1>*/}
-                      {/*<p>YOU KNEW: {this.state.points} COLORS </p>*/}
-                    {/*</div>*/}
-                    {/*: null*/}
-              {/*}*/}
              </div>
           <footer className={"footer"}></footer>
         </div>
