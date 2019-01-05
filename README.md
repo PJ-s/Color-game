@@ -1,8 +1,8 @@
 # CSS Color Game
 
-Learn colors by guessing their polish names, RGB values or HEX codes. I used JavaScript(React).
+Learn colors by guessing their keywords, RGB values or HEX codes. I used JavaScript(React).
 
-In future I would like to add english color names, starting menu and scoreboard.
+In future I would like to add english keywords, starting menu and scoreboard.
 
 
 ### Installing
