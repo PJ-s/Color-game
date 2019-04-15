@@ -89,14 +89,6 @@ class App extends React.Component {
     }
   }
 
-  shuffle = (a) => {
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  };
-
   hardMode = () => {
 
     this.setState({
@@ -147,11 +139,7 @@ class App extends React.Component {
 
             return element;
           }
-
     });
-
-    console.log("filteredArr", filteredArr.length);
-    console.log("counter", this.state.winingCounter);
 
     this.setState({
 
@@ -184,10 +172,10 @@ class App extends React.Component {
   };
 
   getRandomRgb = () => {
-    var num = Math.round(0xffffff * Math.random());
-    var r = num >> 16;
-    var g = num >> 8 & 255;
-    var b = num & 255;
+    let num = Math.round(0xffffff * Math.random());
+    const r = num >> 16;
+    const g = num >> 8 & 255;
+    const b = num & 255;
     return 'rgb(' + r + ', ' + g + ', ' + b + ')';
   };
 
@@ -246,19 +234,16 @@ class App extends React.Component {
 
   gameMode = (mode) => {
 
-    if (mode === "rgb") {
+    switch(mode) {
 
+      case "rgb": return this.state.goodColor.rgb;
 
-      return this.state.goodColor.rgb
-    }
-    else if (mode === "names") {
+      case "names": return this.state.goodColor.name;
 
-      return this.state.goodColor.name
+      case "hex": return this.state.goodColor.hex;
+
     }
-    else if (mode === "hex") {
-      return this.state.goodColor.hex
-    }
-  };
+  }
 
   handleHint = () => {
 
@@ -277,6 +262,14 @@ class App extends React.Component {
     }
   };
 
+  shuffle = (a) => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+
   render(){
 
     const randomBoxes = this.state.colorsArr.map((element) => {
@@ -292,18 +285,17 @@ class App extends React.Component {
               <nav className={"navBar"}>
                 <ul className={"leftBox"}>
                   <li className={"select"}>CHOOSE GAME :  </li>
-                  <li><a onClick={() => this.newGame('rgb')} style={{color: this.state.activeRgb}}> | RGB |</a></li>
-                  <li><a onClick={() => this.newGame('names')} style={{color: this.state.activeNames}}> | PL NAMES | </a></li>
-                  <li><a onClick={() => this.newGame('hex')} style={{color: this.state.activeHex}}>| HEX |</a></li>
+                  <li onClick={() => this.newGame('rgb')} style={{color: this.state.activeRgb}}> | RGB |</li>
+                  <li onClick={() => this.newGame('names')} style={{color: this.state.activeNames}}> | PL NAMES |</li>
+                  <li onClick={() => this.newGame('hex')} style={{color: this.state.activeHex}}>| HEX |</li>
                 </ul>
                 <div className={"centerBox"}>
                   <h1 className={"title"}>CSS Color Game</h1>
                 </div>
                 <ul className={"difficultyBox"}>
-                          <li><a onClick={this.handleHint}>| SHOW ANSWER | </a></li>
-                          <li><a onClick={this.hardMode} style={{color: this.state.hardBtnColor}}>| HARD | </a></li>
-                          <li><a onClick={this.easyMode} style={{color: this.state.easyBtnColor}}>| EASY | </a></li>
-                        {/*<li><a onClick={this.endGame}>| END GAME |</a></li>*/}
+                  <li onClick={this.handleHint}>| SHOW ANSWER | </li>
+                  <li onClick={this.hardMode} style={{color: this.state.hardBtnColor}}>| HARD | </li>
+                  <li onClick={this.easyMode} style={{color: this.state.easyBtnColor}}>| EASY | </li>
                 </ul>
               </nav>
 
@@ -318,9 +310,7 @@ class App extends React.Component {
                         </h1>
                       </section>
                       <div className={"colorElements"}>
-
                         {randomBoxes}
-
                       </div>
                       <div className={"scoreBoard"}>
                         <p>COLORS LEFT: <span>{this.state.winingCounter}</span></p>
@@ -336,7 +326,6 @@ class App extends React.Component {
                     </div>
                     : null
               }
-
               {
                 this.state.gameWin
                   ?
@@ -351,5 +340,4 @@ class App extends React.Component {
     )
   }
 }
-
 export default App;
